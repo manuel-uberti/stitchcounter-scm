@@ -27,3 +27,8 @@ Options:
 Pick your option:
 ```
 Pick your option and follow the instructions.
+
+## License
+Copyright © 2015 Manuel Uberti
+
+Distributed under the GNU GENERAL PUBLIC LICENSE.
