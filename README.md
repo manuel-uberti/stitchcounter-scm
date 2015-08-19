@@ -3,7 +3,7 @@
 Command line tool to help you with knitting and crocheting.
 
 It is a porting in [CHICKEN Scheme](http://call-cc.org/) of the same program I
-wrote in [Clojure](https://github.com/manuel-uberti/stitchcounter-clj) and in
+wrote in [Clojure](https://github.com/manuel-uberti/stitchcounter-clj) and
 [C](https://github.com/manuel-uberti/c-bag/blob/master/stitchcounter.c).
 
 ## Usage
