@@ -2,7 +2,7 @@
 
 Command line tool to help you with knitting and crocheting.
 
-It is a porting in [Chicken Scheme](http://call-cc.org/) of the same program I
+It is a porting in [CHICKEN Scheme](http://call-cc.org/) of the same program I
 wrote in [Clojure](https://github.com/manuel-uberti/stitchcounter-clj) and in
 [C](https://github.com/manuel-uberti/c-bag/blob/master/stitchcounter.c).
 
