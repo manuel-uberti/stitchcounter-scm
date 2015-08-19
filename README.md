@@ -13,7 +13,7 @@ $ git clone https://github.com/manuel-uberti/stitchcounter-scm.git
 ```
 Run ```stitchcounter``` from the command line:
 ```console
-$ cd stitchcounter-clj
+$ cd stitchcounter-scm
 $ ./stitchcounter
 ```
 You will be presented with the following prompt:
