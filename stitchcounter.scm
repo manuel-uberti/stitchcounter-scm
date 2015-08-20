@@ -5,24 +5,11 @@ exec csi -s $0 "$@"
 
 ;;; stitchcounter.scm
 
-(use extras)
-(use loops)
-(use input-parse)
+(declare (uses io-utils))
 
 (define cms-per-square 10.0)
 
-(define (get-input prompt)
-  (printf "~A" prompt)
-  (read-text-line))
-
-(define (get-number prompt)
-  (let ((v (get-input prompt)))
-    (do-forever
-     (if (number? (string->number v))
-         (exit (string->number v)))
-     (printf "Please specify a valid number.")
-     v)))
-
+;; Calculate stitches from the original gauge
 (define (option-1)
   (let* ((orows
           (get-number "Enter the number of rows in the original gauge (4 inches swatch): "))
@@ -42,6 +29,7 @@ exec csi -s $0 "$@"
           (round (/ (* sts ovals) osts))))
     (printf "Final rows: ~A / Final stitches: ~A\n" resr ress)))
 
+;; Calculate stitches from dimensions
 (define (option-2)
   (let* ((rows
           (get-number "Enter the number of your rows: "))
@@ -59,6 +47,7 @@ exec csi -s $0 "$@"
           (* sts1cm cm)))
     (printf "Final rows: ~A / Final stitches: ~A\n" resr ress)))
 
+;; Main
 (define (stitchcounter)
   (print "\nStitchcounter: useful tool to help knitting and crocheting")
   (print "Options:")
