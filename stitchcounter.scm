@@ -12,19 +12,19 @@ exec csi -s $0 "$@"
 ;; Calculate stitches from the original gauge
 (define (option-1)
   (let* ((orows
-          (get-number "Enter the number of rows in the original gauge (4 inches swatch): "))
+          (get-num "Number of rows in the original gauge (4 inches swatch): "))
          (osts
-          (get-number "Enter the number of stitches of the original gauge (4 inches swatch): "))
+          (get-num "Number of stitches of the original gauge (4 inches swatch): "))
          (rows
-          (get-number "Enter the number of rows in your gauge (4 inches swatch): "))
+          (get-num "Number of rows in your gauge (4 inches swatch): "))
          (sts
-          (get-number "Enter the number of stitches in your gauge (4 inches swatch): "))
+          (get-num "Number of stitches in your gauge (4 inches swatch): "))
          (ovalr
-          (get-number "Enter the total rows of the original project: "))
+          (get-num "Total rows of the original project: "))
          (resr
           (round (/ (* rows ovalr) orows)))
          (ovals
-          (get-number "Enter the stitches to CO in the project: "))
+          (get-num "Stitches to CO in the project: "))
          (ress
           (round (/ (* sts ovals) osts))))
     (printf "Final rows: ~A / Final stitches: ~A\n" resr ress)))
@@ -32,15 +32,15 @@ exec csi -s $0 "$@"
 ;; Calculate stitches from dimensions
 (define (option-2)
   (let* ((rows
-          (get-number "Enter the number of your rows: "))
+          (get-num "Number of your rows: "))
          (sts
-          (get-number "Enter the number of your stitches: "))
+          (get-num "Number of your stitches: "))
          (rows1cm
           (/ rows cms-per-square))
          (sts1cm
           (/ sts cms-per-square))
          (cm
-          (get-number "Enter the cms of your project: "))
+          (get-num "Cms of your project: "))
          (resr
           (* rows1cm cm))
          (ress

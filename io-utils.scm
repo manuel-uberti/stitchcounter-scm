@@ -12,7 +12,7 @@
   (read-text-line))
 
 ;; Print a pront and specifically ask for a number
-(define (get-number prompt)
+(define (get-num prompt)
   (let ((v (get-input prompt)))
     (do-forever
      (if (number? (string->number v))
