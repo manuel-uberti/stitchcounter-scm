@@ -1,8 +1,3 @@
-#!/bin/sh
-#| -*- scheme -*-
-exec csi -s $0 "$@"
-|#
-
 ;;; Library io-utils.scm
 ;; Common I/O utilities
 (declare (unit io-utils))
