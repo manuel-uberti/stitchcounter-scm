@@ -49,6 +49,14 @@ exec csi -s $0 "$@"
           (* sts1cm cm)))
     (printf "Final rows/rounds: ~A / Final stitches: ~A\n" resr ress)))
 
+(define (pick prompt)
+  (let ((input (get-num prompt)))
+    (cond
+     ((= 1 input) (option-1))
+     ((= 2 input) (option-2))
+     ((= 3 input) (exit))
+     (else (pick prompt)))))
+
 ;; Main
 (define (stitchcounter)
   (print "\nStitchcounter: useful tool to help knitting and crocheting")
@@ -60,11 +68,6 @@ exec csi -s $0 "$@"
   (print "\t  (You have a given gauge, calculate how many stiches/rows")
   (print "\t  you need to get a given dimension)\n")
   (print "\t3 Quit")
-  (let ((input (get-num "\nPick your option: ")))
-    (cond
-     ((= 1 input) (option-1))
-     ((= 2 input) (option-2))
-     ((= 3 input) (exit))
-     (else "Please specify a valid option."))))
+  (pick "\nPick your option: "))
 
 (stitchcounter)
