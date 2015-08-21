@@ -12,49 +12,55 @@ exec csi -s $0 "$@"
 ;; Calculate stitches from the original gauge
 (define (option-1)
   (let* ((orows
-          (get-num "Number of rows in the original gauge (4 inches swatch): "))
+          (get-num "Number of rows/rounds as listed in pattern gauge: "))
          (osts
-          (get-num "Number of stitches of the original gauge (4 inches swatch): "))
+          (get-num "Number of stitches as listed in pattern gauge: "))
          (rows
-          (get-num "Number of rows in your gauge (4 inches swatch): "))
+          (get-num "Number of rows/rounds in gauge you want to use: "))
          (sts
-          (get-num "Number of stitches in your gauge (4 inches swatch): "))
+          (get-num "Number of stitches in gauge you want to use: "))
          (ovalr
-          (get-num "Total rows of the original project: "))
+          (get-num "Total rows/rounds of pattern: "))
          (resr
           (round (/ (* rows ovalr) orows)))
          (ovals
-          (get-num "Stitches to CO in the project: "))
+          (get-num "Stitches to CO for your project: "))
          (ress
           (round (/ (* sts ovals) osts))))
-    (printf "Final rows: ~A / Final stitches: ~A\n" resr ress)))
+    (printf "Final rows/rounds: ~A / Final stitches: ~A\n" resr ress)))
 
 ;; Calculate stitches from dimensions
 (define (option-2)
-  (let* ((rows
-          (get-num "Number of your rows: "))
+  (let* ((units
+          (get-num "Dimension of swatch [4 inches, 10 cms, etc.]: "))
+         (rows
+          (get-num "Rows/rounds in gauge: "))
          (sts
-          (get-num "Number of your stitches: "))
+          (get-num "Stitches in gauge: "))
          (rows1cm
-          (/ rows cms-per-square))
+          (/ rows units))
          (sts1cm
-          (/ sts cms-per-square))
+          (/ sts units))
          (cm
-          (get-num "Cms of your project: "))
+          (get-num "Cms/inches of your project: "))
          (resr
           (* rows1cm cm))
          (ress
           (* sts1cm cm)))
-    (printf "Final rows: ~A / Final stitches: ~A\n" resr ress)))
+    (printf "Final rows/rounds: ~A / Final stitches: ~A\n" resr ress)))
 
 ;; Main
 (define (stitchcounter)
   (print "\nStitchcounter: useful tool to help knitting and crocheting")
-  (print "Options:")
-  (print "\t1 Calculate stitches from original gauge")
-  (print "\t2 Calculate stitches from dimensions")
+  (print "Options:\n")
+  (print "\t1 Change gauge in a pattern")
+  (print "\t  (Pattern lists gauge and width, you want to knit")
+  (print "\t  the same width with a different gauge)\n")
+  (print "\t2 Calculate number of stitches to CO")
+  (print "\t  (You have a given gauge, calculate how many stiches/rows")
+  (print "\t  you need to get a given dimension)\n")
   (print "\t3 Quit")
-  (let ((input (get-input "Pick your option: ")))
+  (let ((input (get-input "\nPick your option: ")))
     (cond
      ((string=? "1" input) (option-1))
      ((string=? "2" input) (option-2))
