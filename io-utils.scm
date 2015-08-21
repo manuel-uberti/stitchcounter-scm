@@ -3,7 +3,6 @@
 (declare (unit io-utils))
 
 (use extras)
-(use loops)
 (use input-parse)
 
 ;; Print a prompt and wait for an input from the user
@@ -16,8 +15,6 @@
   (let* ((v (get-input prompt))
          (vl (string-split v " " #f))
          (vc (car vl)))
-    (do-forever
-     (if (number? (string->number vc))
-         (exit (string->number vc)))
-     (printf "Please specify a valid number.")
-     vc)))
+    (if (number? (string->number vc))
+        (string->number vc)
+        (get-num (conc "Please specify a valid number.\n" prompt)))))
