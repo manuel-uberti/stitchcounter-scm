@@ -62,9 +62,9 @@ exec csi -s $0 "$@"
   (print "\t3 Quit")
   (let ((input (get-num "\nPick your option: ")))
     (cond
-     ((string=? "1" input) (option-1))
-     ((string=? "2" input) (option-2))
-     ((string=? "3" input) (exit))
+     ((= 1 input) (option-1))
+     ((= 2 input) (option-2))
+     ((= 3 input) (exit))
      (else "Please specify a valid option."))))
 
 (stitchcounter)
