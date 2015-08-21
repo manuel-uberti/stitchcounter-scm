@@ -11,11 +11,13 @@
   (printf "~A" prompt)
   (read-text-line))
 
-;; Print a pront and specifically ask for a number
+;; Print a prompt and specifically ask for a number
 (define (get-num prompt)
-  (let ((v (get-input prompt)))
+  (let* ((v (get-input prompt))
+         (vl (string-split v " " #f))
+         (vc (car vl)))
     (do-forever
-     (if (number? (string->number v))
-         (exit (string->number v)))
+     (if (number? (string->number vc))
+         (exit (string->number vc)))
      (printf "Please specify a valid number.")
-     v)))
+     vc)))
