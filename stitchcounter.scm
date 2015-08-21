@@ -60,7 +60,7 @@ exec csi -s $0 "$@"
   (print "\t  (You have a given gauge, calculate how many stiches/rows")
   (print "\t  you need to get a given dimension)\n")
   (print "\t3 Quit")
-  (let ((input (get-input "\nPick your option: ")))
+  (let ((input (get-num "\nPick your option: ")))
     (cond
      ((string=? "1" input) (option-1))
      ((string=? "2" input) (option-2))
