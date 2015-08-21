@@ -14,7 +14,7 @@
 (define (get-num prompt)
   (let* ((v (get-input prompt))
          (vl (string-split v " " #f))
-         (vc (car vl)))
+         (vc (if (pair? vl) (car vl) "")))
     (if (number? (string->number vc))
         (string->number vc)
         (get-num (conc "Please specify a valid number.\n" prompt)))))
