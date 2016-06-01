@@ -21,9 +21,17 @@ You will be presented with the following prompt:
 $ ./stitchcounter
 Stitchcounter: useful tool to help knitting and crocheting
 Options:
-    1 Calculate stitches from original gauge
-    2 Calculate stitches from dimensions
+
+    1 Change gauge in a pattern
+      (Pattern lists gauge and width, you want to knit
+      the same width with a different gauge)
+
+    2 Calculate number of stitches to CO
+      (You have a given gauge, calculate how many stiches/rows
+      you need to get a given dimension)
+
     3 Quit
+
 Pick your option:
 ```
 Pick your option and follow the instructions.
